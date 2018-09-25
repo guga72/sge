@@ -10,8 +10,25 @@ import br.edu.ifsp.spo.lg2a2.sge.entidades.Turma;
 public class CursosRepository {
         private CursosRepository repository;
 
-        Collection<Curso> cursos = new ArrayList<Curso>();
-
+        private static Collection<Curso> cursos = new ArrayList<Curso>();
+        
+        
+    public void adicionarCurso(Curso curso) {
+    	this.cursos.add(curso);
+    }
+    
+    public void Curso(String curso) {
+    	for(Curso curso : CursosRepository.cursos) {
+    		
+    	}
+//    	for(Aluno aluno : AlunosRepository.alunos) {
+//			if(aluno.getCpf().equals(cpf)) {
+//				resultado = aluno;
+//				break;
+//			}
+//		}
+    }
+        
 	public Curso buscarPorCodigo(String codigo) {
 		return null;
 	}

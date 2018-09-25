@@ -13,6 +13,11 @@ public class Curso {
 		this.codigo = codigo;
 	}
 	
+	public Curso(String ncurso) {
+		this.nome = ncurso;
+		
+	}
+
 	private Collection<Turma> turmas;
         
 	public Collection<Turma> getTurmas() {

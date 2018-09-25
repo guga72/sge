@@ -27,11 +27,12 @@ public class ProcessoDeMatricula {
 		}
 	}
 	
-	public static ComprovanteMatricula processarMatricula(DadosAluno dados, int prontuario) {
+	public static ComprovanteMatricula processarMatricula(DadosAluno dados, int prontuario, String ncurso) {
+	//	Curso curso =new Curso(ncurso);
 		Turma turma = null;
 		String pront = gerarProntuario (prontuario);
 		Aluno aluno = new Aluno (pront, dados.getCpf(), dados.getNome(), dados.getEmail());
-                AlunosRepository add = new AlunosRepository(aluno);
+       //         AlunosRepository add = new AlunosRepository(aluno);
 		ComprovanteMatricula comprovante = new ComprovanteMatricula(aluno, turma);
 		return comprovante;
 	}

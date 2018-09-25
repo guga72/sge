@@ -4,6 +4,7 @@ import br.edu.ifsp.spo.lg2a2.sge.entidades.Aluno;
 import br.edu.ifsp.spo.lg2a2.sge.entidades.Curso;
 import br.edu.ifsp.spo.lg2a2.sge.entidades.SituacaoMatricula;
 import br.edu.ifsp.spo.lg2a2.sge.repositories.AlunosRepository;
+import br.edu.ifsp.spo.lg2a2.sge.repositories.CursosRepository;
 import br.edu.ifsp.spo.lg2a2.sge.vo.ComprovanteMatricula;
 import br.edu.ifsp.spo.lg2a2.sge.vo.DadosAluno;
 import java.util.Collection;
@@ -33,10 +34,13 @@ public class App {
 
 	public static void main(String[] args) {
 		
+		CursosRepository ADS = new CursosRepository();
+		
 		String nome;
 		String email;
 		String cpf;
 		int prontuario = 300000000;
+		String curso;
 		
 		Scanner scan = new Scanner(System.in);
 		for (;;){
@@ -45,7 +49,7 @@ public class App {
 		SituacaoMatricula resultado = ProcessoDeMatricula.verificarExistenciaAluno(cpf);
 		if (resultado == SituacaoMatricula.Cadastrado){
 			System.out.println ("CPF já cadastrado! ");
-			
+		
 		}
 		if (resultado == SituacaoMatricula.Novo){
 			System.out.println ("CPF não cadastrado! ");
@@ -53,8 +57,10 @@ public class App {
 			nome = scan.next(); 
 			System.out.print ("E-mail: ");
 			email = scan.next();
+			System.out.print("Qual curso vai se matricular:");
+			curso = scan.next();
 			DadosAluno dados = new DadosAluno(cpf, nome, email);
-			ComprovanteMatricula comprovante = ProcessoDeMatricula.processarMatricula(dados, prontuario);
+			ComprovanteMatricula comprovante = ProcessoDeMatricula.processarMatricula(dados, prontuario, curso);
 			prontuario++;
 		}
 		}
